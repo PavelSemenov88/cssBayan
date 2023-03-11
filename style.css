@@ -2,31 +2,68 @@
   margin-top: 50px;
 }
 
+.title {
+  text-align: center;
+  font-size: 3em;
+}
 
 .accordion {
   margin: 0 auto;
   width: 900px;
 }
 
-
-
 .accordion-item {
-  position: relative;
   margin-bottom: 20px;
 }
 
 .accordion-item__input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-
+  display: none;
 }
 
 .accordion-item__trigger {
   display: block;
-  padding: 20px;
+  padding: 10px 20px;
   border: 1px solid black;
+  
+}
+.accordion-item__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.accordion-item__text {
+  color: blue;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+
+.accordion-item__icon {
+  width: 30px;
+  height: 30px;
+  
+}
+
+.accordion:hover .accordion-item__text {
+  color: black;
+}
+
+.accordion:hover .accordion-item__icon {
+  background-image: url('./img/close.png');
+}
+
+.accordion-item:hover .accordion-item__icon {
+  background-image: url('./img/open.png');
+}
+
+input:checked + .accordion-item__trigger > .accordion-item__wrapper > .accordion-item__text {
+  color: black;
+}
+
+.accordion:hover input:checked + .accordion-item__trigger > .accordion-item__wrapper > .accordion-item__icon {
+  background-image: url('./img/open.png');;
 }
 
 .accordion-item__content {
@@ -36,10 +73,11 @@
   display: none;
 }
 
+
 .wrapper-image{
   text-align: center;
 }
-@keyframes animation-image {
+@keyframes animation-image-in {
   from {
       width: 0;
   }
@@ -48,11 +86,26 @@
       width: 400px;
   }
 }
+
+@keyframes animation-image-out {
+  from {
+      width: 400px;
+  }
+
+  to {
+      width: 0;
+  }
+}
 .accordion-item__image {
   width: 400px;
-  animation: 1s ease-in-out animation-image;
+  animation: 1s ease-in-out animation-image-in;
+  /* animation-direction: reverse; */
   
 }
+
+/* .accordion-item__image:hover {
+  animation: 1s ease-in-out animation-image-out;
+} */
 
 .accordion-item__input:checked ~ .accordion-item__trigger {
   background-color: #eee;
@@ -61,13 +114,13 @@
 .accordion-item__input:checked ~ .accordion-item__content {
   display: block;
   background-color: #eee;
-  transition: 1s;
+  /* transition: 1s; */
 }
 
 .accordion-item__trigger:hover ~ .accordion-item__content, .accordion-item__content:hover {
   display: block;
   background-color: #eee;
-  transition: 1s;
+  /* transition: 1s; */
 }
 
 @media (max-width: 1100px) {
@@ -86,7 +139,9 @@
 }
 
 @media (max-width: 685px) {
-
+  .accordion-item__image {
+    width: 80%;
+  }
   @keyframes animation-image {
     from {
         width: 0;
