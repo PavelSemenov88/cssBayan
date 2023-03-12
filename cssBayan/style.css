@@ -76,13 +76,14 @@ input:checked + .accordion-item__trigger > .accordion-item__wrapper > .accordion
   border: 1px solid black;
   border-top: none;
   display: none;
+  transition: 1s;
 }
 
 
 .wrapper-image{
   text-align: center;
 }
-@keyframes animation-image-in {
+@keyframes animation-image {
   from {
       width: 0;
   }
@@ -92,25 +93,10 @@ input:checked + .accordion-item__trigger > .accordion-item__wrapper > .accordion
   }
 }
 
-@keyframes animation-image-out {
-  from {
-      width: 400px;
-  }
-
-  to {
-      width: 0;
-  }
-}
 .accordion-item__image {
   width: 400px;
-  animation: 1s ease-in-out animation-image-in;
-  /* animation-direction: reverse; */
-  
+  animation: 1s ease-in-out animation-image;
 }
-
-/* .accordion-item__image:hover {
-  animation: 1s ease-in-out animation-image-out;
-} */
 
 .accordion-item__input:checked ~ .accordion-item__trigger {
   background-color: #eee;
@@ -119,13 +105,11 @@ input:checked + .accordion-item__trigger > .accordion-item__wrapper > .accordion
 .accordion-item__input:checked ~ .accordion-item__content {
   display: block;
   background-color: #eee;
-  /* transition: 1s; */
 }
 
 .accordion-item__trigger:hover ~ .accordion-item__content, .accordion-item__content:hover {
   display: block;
   background-color: #eee;
-  /* transition: 1s; */
 }
 
 @media (max-width: 1100px) {
