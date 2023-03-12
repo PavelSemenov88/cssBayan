@@ -21,6 +21,7 @@
 }
 
 .accordion-item__trigger {
+  cursor: pointer;
   display: block;
   padding: 10px 20px;
   border: 1px solid black;
@@ -65,8 +66,12 @@ input:checked + .accordion-item__trigger > .accordion-item__wrapper > .accordion
 .accordion:hover input:checked + .accordion-item__trigger > .accordion-item__wrapper > .accordion-item__icon {
   background-image: url('./img/open.png');;
 }
+.accordion-item:active .accordion-item__text {
+  color: blue;
+}
 
 .accordion-item__content {
+  /* cursor: pointer; */
   padding: 20px;
   border: 1px solid black;
   border-top: none;
